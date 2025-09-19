@@ -1,0 +1,1114 @@
+{% extends "base.html" %}
+{% block title  %} Formulario carta de credito {% endblock %}
+{% block content %}
+<style>
+    table,td{
+        border: solid;
+        border-width: 1px;
+        margin: auto;
+        border-radius: 20px;
+    }
+</style>
+<script>
+    function cfecha(el) {
+        var x = el.value;
+        var cb = x.split('/').reverse();
+        el.value = cb;
+        console.log(el.value);
+    }
+
+    function hcampo(l) {
+        var y = l.value;
+        if (y == "Mixto") {
+            document.getElementById("upago").disabled = false;
+        } else {
+            document.getElementById("upago").disabled = true;
+        }
+    }
+
+    function dcampo(f) {
+        var z = f.value;
+        if (z == "No") {
+            document.getElementById("rimp").disabled = false;
+        } else {
+            document.getElementById("rimp").disabled = true;
+        }
+    }
+</script>
+<div class="row card col-md-12 text-center">
+    <div class="card col-md-12 text-center">
+        <div class=" col-md-12">
+<form method="POST" action={{ url_for("cartaCredito") }}>
+    <div>
+        <h2 class="display-4"><b>Solicitud Apertura Carta de Credito Documentario</b></h2>
+    </div>
+</div>
+            
+        </div>
+    <div class="card-body col-md-12 text-center">
+    <div class="col-md-2  pg text-center">
+        <p>Oficina:</p>
+        <select name="Oficina">
+            <option value="0">Seleccione</option>
+            <option value="001">001</option>
+            <option value="003">003</option>
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="012">012</option>
+            <option value="013">013</option>
+            <option value="014">014</option>
+            <option value="Avenida Colombia">Avenida Colombia</option>
+            <option value="016">016</option>
+            <option value="017">017</option>
+            <option value="018">018</option>
+            <option value="019">019</option>
+            <option value="021">021</option>
+            <option value="022">022</option>
+            <option value="023">023</option>
+            <option value="024">024</option>
+            <option value="025">025</option>
+            <option value="027">027</option>
+            <option value="029">029</option>
+            <option value="030">030</option>
+            <option value="031">031</option>
+            <option value="035">035</option>
+            <option value="036">036</option>
+            <option value="037">037</option>
+            <option value="038">038</option>
+            <option value="040">040</option>
+            <option value="041">041</option>
+            <option value="045">045</option>
+            <option value="050">050</option>
+            <option value="055">055</option>
+            <option value="060">060</option>
+            <option value="063">063</option>
+            <option value="065">065</option>
+            <option value="073">073</option>
+            <option value="075">075</option>
+            <option value="077">077</option>
+            <option value="103">103</option>
+            <option value="200">200</option>
+            <option value="202">202</option>
+            <option value="210">210</option>
+            <option value="215">215</option>
+            <option value="220">220</option>
+            <option value="225">225</option>
+            <option value="227">227</option>
+            <option value="230">230</option>
+            <option value="231">231</option>
+            <option value="323">323</option>
+            <option value="234">234</option>
+            <option value="235">235</option>
+            <option value="236">236</option>
+            <option value="240">240</option>
+            <option value="242">242</option>
+            <option value="244">244</option>
+            <option value="247">247</option>
+            <option value="248">248</option>
+            <option value="250">250</option>
+            <option value="251">251</option>
+            <option value="253">253</option>
+            <option value="255">255</option>
+            <option value="256">256</option>
+            <option value="258">258</option>
+            <option value="261">261</option>
+            <option value="263">263</option>
+            <option value="264">264</option>
+            <option value="265">265</option>
+            <option value="267">267</option>
+            <option value="268">268</option>
+            <option value="270">270</option>
+            <option value="278">278</option>
+            <option value="285">285</option>
+            <option value="288">288</option>
+            <option value="290">290</option>
+            <option value="292">292</option>
+            <option value="300">300</option>
+            <option value="303">303</option>
+            <option value="350">350</option>
+            <option value="380">380</option>
+            <option value="390">390</option>
+            <option value="400">400</option>
+            <option value="405">405</option>
+            <option value="408">408</option>
+            <option value="409">409</option>
+            <option value="410">410</option>
+            <option value="415">415</option>
+            <option value="418">418</option>
+            <option value="420">420</option>
+            <option value="425">425</option>
+            <option value="430">430</option>
+            <option value="435">435</option>
+            <option value="450">450</option>
+            <option value="460">460</option>
+            <option value="477">477</option>
+            <option value="480">480</option>
+            <option value="485">485</option>
+            <option value="490">490</option>
+            <option value="510">510</option>
+            <option value="600">600</option>
+            <option value="650">650</option>
+            <option value="655">655</option>
+            <option value="657">657</option>
+            <option value="658">658</option>
+            <option value="700">700</option>
+            <option value="710">710</option>
+            <option value="800">800</option>
+            <option value="802">802</option>
+            <option value="805">805</option>
+            <option value="808">808</option>
+            <option value="810">810</option>
+            <option value="815">815</option>
+            <option value="820">820</option>
+            <option value="825">825</option>
+            <option value="830">830</option>
+            <option value="845">845</option>
+            <option value="847">847</option>
+            <option value="850">850</option>
+            <option value="855">855</option>
+            <option value="870">870</option>
+        </select>
+    </div>
+    <div class="col-md-3 pg text-center">
+        <p>Fecha:</p> <input type="date" onchange="cfecha(this)" name="Fecha" required>
+    </div>
+    <div class="sub col-md-11 text-center">
+        Solicitamos al Banco la apertura de un crédito documentario IRREVOCABLE sujeto a las reglas y usos
+        uniformes de la publicación vigente en la Cámara de Comercio Internacional bajo las siguientes
+        condiciones:
+    </div>
+    <div class="sub col-md-11 text-center">
+        <h3 class="display-4"><b>INFORMACION DEL CLIENTE</b></h3>
+    </div>
+    <div class="col-md-2 pg text-center">
+        <p>Tipo de identificacion:</p>
+        <select name="Tipo">
+            <option value="0">Seleccione</option>
+            <option value="CC">CC</option>
+            <option value="NIT">NIT</option>
+            <option value="CE">CE</option>
+        </select>
+    </div>
+    <div class="col-md-3 pg text-center">
+        <p>No. Identificacion:</p><input type="text" name="NumeroIdentificacion" required>
+    </div>
+    <div class="col-md-6 pg text-center">
+        <p>Nombre</p><input type="text" name="Nombre" required></th>
+    </div>
+    <div class="col-md-7 pg text-center">
+        <p>Direccion:</p><input type="text" name="Direccion" required>
+    </div>
+    <div class="col-md-3 pg text-center">
+        <p>Ciudad:</p><input type="text" name="Ciudad" required>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Telefono:</p><input type="text" name="Telefono" required>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Fax:</p><input type="text" name="Fax">
+    </div>
+    <div class="pg col-md-2 text-center">
+         <p>Codigo CIIU:</p><!-- <input type="text" name="CodigoCIIU" required>
+         Espacio del select extenso -->
+        <p>
+            <select name="CodigoCIIU">
+                <option value="0111">0111 PRODUCCION ESPECIALIZADA DEL CAFE</option>
+                <option value="0112">0112 PRODUCCION ESPECIALIZADA DE FLOR DE CORTE BAJO CUBIERTA Y AL AIRE LIBRE</option>
+                <option value="0113">0113 PRODUCCION ESPECIALIZADA DE BANANO</option>
+                <option value="0114">0114 PRODUCCION ESPECIALIZADA DE CAÐA DE AZUCAR</option>
+                <option value="0115">0115 PRODUCCION ESPECIALIZADA DE CEREALES Y OLEAGINOSAS</option>
+                <option value="0116">0116 PRODUCCION ESPECIALIZADA DE HORTALIZAS Y LEGUMBRES</option>
+                <option value="0117">0117 PRODUCCION ESPECIALIZADA DE FRUTAS, NUECES, PLANTAS BEBESTIBLES Y ESPECIAS
+                </option>
+                <option value="0118">0118 PRODUCCION AGRICOLA NCP EN UNIDADES ESPECIALIZADAS</option>
+                <option value="0119">0119 PRODUCCION AGRICOLA EN UNIDADES NO ESPECIALIZADAS</option>
+                <option value="0121">0121 CRIA ESPECIALIZADA DE GANADO VACUNO</option>
+                <option value="0122">0122 CRIA ESPECIALIZADA DE GANADO PORCINO</option>
+                <option value="0123">0123 CRIA ESPECIALIZADA DE AVES DE CORRAL</option>
+                <option value="0124">0124 CRIA ESPECIALIZADA DE OVEJAS, CABRAS, CABALLOS, ASNOS, MULAS Y BURDEGANOS</option>
+                <option value="0125">0125 CRIA ESPECIALIZADA DE OTROS ANIMALES NCP Y LA OBTENCION DE SUS PRODUCTOS</option>
+                <option value="0129">0129 ACTIVIDAD PECUARIA NO ESPECIALIZADA</option>
+                <option value="0130">0130 ACTIVIDAD MIXTA (AGRICOLA Y PECUARIA)</option>
+                <option value="0140">0140 ACTIVIDADES DE SERVICIOS, AGRICOLAS Y GANADEROS, EXCEPTO LAS ACTIVIDADES
+                    VETERINARIAS SERVICIOS CONEXAS </option>
+                <option value="0150">0150 CAZA ORDINARIA Y MEDIANTE TRAMPAS Y REPOBLACION DE ANIMALES DE CAZA, INCLUSO
+                    ACTIVIDADES DE SERVICIOS CONEXAS</option>
+                <option value="0201">0201 SILVICULTURA Y EXPLOTACION DE LA MADERA</option>
+                <option value="0202">0202 ACTIVIDADES DE SERVICIOS RELACIONADAS CON LA SILVICULTURA Y LA EXTRACCION DE LA
+                    MADERA.</option>
+                <option value="0501">0501 PESCA Y CULTIVO DE PECES EN CRIADEROS Y GRANJAS PISCICOLAS</option>
+                <option value="0502">0502 ACTIVIDADES DE SERVICIOS RELACIONADOS CON LA PESCA</option>
+                <option value="1010">1010 EXTRACCION Y AGLOMERACION DE HULLA (CARBON DE PIEDRA)</option>
+                <option value="1020">1020 EXTRACCION Y AGLOMERACION DE CARBON LIGNITICO</option>
+                <option value="1030">1030 EXTRACCION Y AGLOMERACION DE TURBA</option>
+                <option value="1110">1110 EXTRACCION DE PETROLEO CRUDO Y DE GAS NATURAL</option>
+                <option value="1120">1120 ACTIVIDADES DE SERV. RELACIONADAS CON EXTRACCION DE PETROLEO Y GAS, EXCEPTO LAS
+                    ACTIVIDADES DE PROSPECCION</option>
+                <option value="1200">1200 EXTRACCION DE MINERALES DE URANIO Y DE TORIO</option>
+                <option value="1310">1310 EXTRACCION DEL MINERAL DE HIERRO</option>
+                <option value="1320">1320 EXTRACCION DE METALES PRECIOSOS</option>
+                <option value="1331">1331 EXTRACCION DE MINERALES DE NIQUEL</option>
+                <option value="1339">1339 EXTRACCION DE OTROS MINERALES METALIFEROS NO FERROSOS, EXCEPTO NIQUEL</option>
+                <option value="1411">1411 EXTRACCION DE PIEDRA, ARENA Y ARCILLAS COMUNES</option>
+                <option value="1412">1412 EXTRACCION DE YESO Y ANHIDRITA</option>
+                <option value="1413">1413 EXTRACCION DE CAOLIN, ARCILLAS DE USO INDUSTRIAL Y BENTONITAS</option>
+                <option value="1414">1414 EXTRACCION DE ARENAS Y GRAVAS SILICEAS</option>
+                <option value="1415">1415 EXTRACCION DE CALIZA Y DOLOMITA</option>
+                <option value="1421">1421 EXTRACCION DE MINERALES PARA LA FABRICACION DE ABONOS Y PRODUCTOS QUIMICOS
+                </option>
+                <option value="1422">1422 EXTRACCION DE HALITA (SAL)</option>
+                <option value="1431">1431 EXTRACCION DE ESMERALDAS</option>
+                <option value="1432">1432 EXTRACCION DE OTRAS PIEDRAS PRECIOSAS Y SEMIPRECIOSAS</option>
+                <option value="1490">1490 EXTRACCION DE OTROS MINERALES NO METALICOS NCP</option>
+                <option value="1511">1511 PRODUCCION, TRANSFORMACION Y CONSERVACION DE CARNE Y DE DERIVADOS CARNICOS
+                </option>
+                <option value="1512">1512 TRANSFORMACION Y CONSERVACION DE PESCADO Y DE DERIVADOS DEL PESCADO</option>
+                <option value="1521">1521 ELABORACION DE ALIMENTOS COMPUESTOS PRINCIPALMENTE DE FRUTAS, LEGUMBRES Y
+                    HORTALIZAS</option>
+                <option value="1522">1522 ELABORACION DE ACEITES Y GRASAS DE ORIGEN VEGETAL Y ANIMAL</option>
+                <option value="1530">1530 ELABORACION DE PRODUCTOS LACTEOS PREPARADOS PARA ANIMALES </option>
+                <option value="1541">1541 ELABORACION DE PRODUCTOS DE MOLINERIA</option>
+                <option value="1542">1542 ELABORACION DE ALMIDONES Y DE PRODUCTOS DERIVADOS DEL ALMIDON</option>
+                <option value="1543">1543 ELABORACION DE ALIMENTOS PREPARADOS PARA ANIMALES</option>
+                <option value="1551">1551 ELABORACION DE PRODUCTOS DE PANADERIA</option>
+                <option value="1552">1552 ELABORACION DE MACARRONES, FIDEOS, ALCUZCUZ Y PRODUCTOS FARINACEOS SIMILARES
+                </option>
+                <option value="1561">1561 TRILLA DE CAFE</option>
+                <option value="1562">1562 DESCAFEINADO</option>
+                <option value="1563">1563 TOSTION Y MOLIENDA DEL CAFE</option>
+                <option value="1564">1564 ELABORACION DE OTROS DERIVADOS DEL CAFE</option>
+                <option value="1571">1571 FABRICACION Y REFINACION DE AZUCAR</option>
+                <option value="1572">1572 FABRICACION DE PANELA</option>
+                <option value="1581">1581 ELABORACION DE CACAO, CHOCOLATE Y PRODUCTOS DE CONFITERIA</option>
+                <option value="1589">1589 ELABORACION DE OTROS PRODUCTOS ALIMENTICIOS NCP</option>
+                <option value="1591">1591 DESTILACION, RECTIFICACION Y MEZCLA DE BEBIDAS ALCOHOLICAS; PRODUCCION DE ALCOHOL
+                    ETILICO A PARTIR DE SUSTANCIAS FERMENTADAS</option>
+                <option value="1592">1592 ELABORACION DE BEBIDAS FERMENTADAS NO DESTILADAS</option>
+                <option value="1593">1593 PRODUCCION DE MALTA, ELABORACION DE CERVEZAS Y OTRAS BEBIDAS MALTEADAS</option>
+                <option value="1594">1594 ELABORACION DE BEBIDAS NO ALCOHOLICAS; PRODUCCION DE AGUAS MINERALES</option>
+                <option value="1600">1600 FABRICACION DE PRODUCTOS DE TABACO</option>
+                <option value="1710">1710 PREPARACION E HILATURA DE FIBRAS TEXTILES</option>
+                <option value="1720">1720 TEJEDURA DE PRODUCTOS TEXTILES</option>
+                <option value="1730">1730 ACABADO DE PRODUCTOS TEXTILES NO PRODUCIDOS EN LA MISMA UNIDAD DE PRODUCCION
+                </option>
+                <option value="1741">1741 CONFECCION DE ART. CON MATERIALES TEXTILES NO PRODUCIDOS EN LA MISMA UNIDAD,
+                    EXCEPTO PRENDAS DE VESTIR</option>
+                <option value="1742">1742 FABRICACION DE TAPICES Y ALFOMBRAS PARA PISOS</option>
+                <option value="1743">1743 FABRICACION DE CUERDAS, CORDELES, CABLES, BRAMANTES Y REDES</option>
+                <option value="1749">1749 FABRICACION DE OTROS ARTICULOS TEXTILES NCP</option>
+                <option value="1750">1750 FABRICACION DE TEJIDOS Y ARTICULOS DE PUNTO Y GANCHILLO</option>
+                <option value="1810">1810 FABRICACION DE PRENDAS DE VESTIR, EXCEPTO PRENDAS DE PIEL</option>
+                <option value="1820">1820 PREPARADO Y TEÐIDO DE PIELES; FABRICACION DE ARTICULOS DE PIEL</option>
+                <option value="1910">1910 CURTIDO Y PREPARADO DE CUEROS</option>
+                <option value="1921">1921 FABRICACION DE CALZADO DE CUERO Y PIEL; CON CUALQUIER TIPO DE SUELA, EXCEPTO EL
+                    CALZADO DEPORTIVO</option>
+                <option value="1922">1922 FABRICACION DE CALZADO DE MATERIALES TEXTILES; CON CUALQUIER TIPO DE SUELA,
+                    EXCEPTO CALZADO DEPORTIVO</option>
+                <option value="1923">1923 FABRICACION DE CALZADO DE CAUCHO, EXCEPTO EL CALZADO DEPORTIVO.</option>
+                <option value="1924">1924 FABRICACION DE CALZADO DE PLASTICO, EXCEPTO EL CALZADO DEPORTIVO</option>
+                <option value="1925">1925 FABRICACION DE CALZADO DEPORTIVO, INCLUSO EL MOLDEADO</option>
+                <option value="1926">1926 FABRICACION DE PARTES DEL CALZADO</option>
+                <option value="1929">1929 FABRICACION DE CALZADO NCP</option>
+                <option value="1931">1931 FABRICACION DE ARTICULOS DE VIAJE, BOLSOS DE MANO, Y ARTICULOS SIMILARES
+                    ELABORADOS EN CUERO; FABRICACION DE ARTICULOS DE TALABARTERIA Y GUARNICIONERIA</option>
+                <option value="1932">1932 FABRICACION DE ARTICULOS DE VIAJE, BOLSOS DE MANO Y ARTICULOS SIMILARES,
+                    ELABORADOS EN MATERIALES SINTETICOS, PLASTICO E IMITACIONES DE CUERO</option>
+                <option value="1939">1939 FABRICACION DE ARTICULOS DE VIAJE, BOLSOS DE MANO, Y ARTICULOS SIMILARES
+                    ELABORADOS CON MATERIALES NCP</option>
+                <option value="2010">2010 ASERRADO, ACEPILLADO E IMPREGNACION DE LA MADERA, LAMINADOS, TABLEROS DE PARTICULAS Y OTROS TABLEROS Y PANELES </option>
+                <option value="2020">2020 FABRICACION DE HOJAS DE MADERA PARA ENCHAPADO; FABRICACION DE TABLEROS
+                    CONTRACHAPADOS, TABLEROS</option>
+                <option value="2030">2030 FABRICACION DE PARTES Y PIEZAS DE CARPINTERIA PARA EDIFICIOS Y CONSTRUCCIONES
+                </option>
+                <option value="2040">2040 FABRICACION DE RECIPIENTES DE MADERA</option>
+                <option value="2090">2090 FABRICACION DE OTROS PRODUCTOS DE MADERA; FABRICACION DE ARTICULOS DE CORCHO,
+                    CESTERIA Y ESPARTERIA</option>
+                <option value="2101">2101 FABRICACION DE PASTAS CELULOSICAS; PAPEL Y CARTON</option>
+                <option value="2102">2102 FABR. DE PAPEL Y CARTON ONDULADO, FABRICACION DE ENVASES, EMPAQUES Y DE EMBALAJES
+                    DE PAPEL Y CARTON</option>
+                <option value="2109">2109 FABRICACION DE OTROS ARTICULOS DE PAPEL Y CARTON</option>
+                <option value="2211">2211 EDICION DE LIBROS, FOLLETOS, PARTITURAS Y OTRAS PUBLICACIONES</option>
+                <option value="2212">2212 EDICION DE PERIODICOS, REVISTAS Y PUBLICACIONES PERIODICAS</option>
+                <option value="2213">2213 EDICION DE MATERIALES GRABADOS</option>
+                <option value="2219">2219 OTROS TRABAJOS DE EDICION</option>
+                <option value="2220">2220 ACTIVIDADES DE IMPRESION</option>
+                <option value="2231">2231 ARTE, DISEÐO Y COMPOSICION</option>
+                <option value="2232">2232 FOTOMECANICA Y ANALOGOS</option>
+                <option value="2233">2233 ENCUADERNACION</option>
+                <option value="2234">2234 ACABADO O RECUBRIMIENTO</option>
+                <option value="2239">2239 OTROS SERVICIOS CONEXOS NCP</option>
+                <option value="224">224 REPRODUCCION DE MATERIALES GRABADOS</option>
+                <option value="2240">2240 REPRODUCCION DE MATERIALES GRABADOS</option>
+                <option value="2310">2310 FABRICACION DE PRODUCTOS DE HORNOS DE COQUE</option>
+                <option value="2321">2321 FABRICACION DE PRODUCTOS DE LA REFINACION DEL PETROLEO, ELABORADOS EN REFINERIA
+                </option>
+                <option value="2322">2322 ELABORACION DE PRODUCTOS DERIVADOS DEL PETROLEO, FUERA DE REFINERIA</option>
+                <option value="2330">2330 ELABORACION DE COMBUSTIBLE NUCLEAR</option>
+                <option value="2411">2411 FABRICACION DE SUSTANCIAS QUIMICAS BASICAS, EXCEPTO ABONOS Y COMPUESTOS
+                    INORGANICOS NITROGENADOS</option>
+                <option value="2412">2412 FABRICACION DE ABONOS Y COMPUESTOS INORGANICOS NITROGENADOS</option>
+                <option value="2413">2413 FABRICACION DE PLASTICOS EN FORMAS PRIMARIAS</option>
+                <option value="2414">2414 FABRICACION DE CAUCHO SINTETICO EN FORMAS PRIMARIAS</option>
+                <option value="2421">2421 FABRICACION DE PLAGUICIDAS Y OTROS PRODUCTOS QUIMICOS DE USO AGROPECUARIO</option>
+                <option value="2422">2422 FABRICACION DE PINTURAS, BARNICES Y REVESTIMIENTOS SIMILARES, TINTAS PARA
+                    IMPRESION Y MASILLAS</option>
+                <option value="2423">2423 FABRICACION DE PRODUCTOS FARMACEUTICOS, SUSTANCIAS QUIMICAS MEDICINALES Y
+                    PRODUCTOS BOTANICOS</option>
+                <option value="2424">2424 FABR. DE JABONES Y DETERGENTES, PREPARADOS PARA LIMPIAR Y PULIR; PERFUMES Y
+                    PREPARADOS DE TOCADOR</option>
+                <option value="2429">2429 FABRICACION DE OTROS PRODUCTOS QUIMICOS NCP</option>
+                <option value="2430">2430 FABRICACION DE FIBRAS SINTETICAS Y ARTIFICIALES</option>
+                <option value="2511">2511 FABRICACION DE LLANTAS Y NEUMATICOS DE CAUCHO</option>
+                <option value="2512">2512 REENCAUCHE DE LLANTAS USADAS</option>
+                <option value="2513">2513 FABRICACION DE FORMAS BASICAS DE CAUCHO</option>
+                <option value="2519">2519 FABRICACION DE OTROS PRODUCTOS DE CAUCHO NCP</option>
+                <option value="2521">2521 FABRICACION DE FORMAS BASICAS DE PLASTICO</option>
+                <option value="2529">2529 FABRICACION DE ARTICULOS DE PLASTICO NCP</option>
+                <option value="2610">2610 FABRICACION DE VIDRIO Y DE PRODUCTOS DE VIDRIO</option>
+                <option value="2691">2691 FABRICACION DE PRODUCTOS DE CERAMICA NO REFRACTARIA, PARA USO NO ESTRUCTURAL
+                </option>
+                <option value="2692">2692 FABRICACION DE PRODUCTOS DE CERAMICA REFRACTARIA</option>
+                <option value="2693">2693 FABRICACION DE PRODUCTOS DE ARCILLA Y CERAMICA NO REFRACTARIAS, PARA USO
+                    ESTRUCTURAL</option>
+                <option value="2694">2694 FABRICACION DE CEMENTO, CAL Y YESO</option>
+                <option value="2695">2695 FABRICACION DE ARTICULOS DE HORMIGON, CEMENTO Y YESO</option>
+                <option value="2696">2696 CORTE, TALLADO Y ACABADO DE LA PIEDRA</option>
+                <option value="2699">2699 FABRICACION DE OTROS PRODUCTOS MINERALES NO METALICOS NCP</option>
+                <option value="2710">2710 INDUSTRIAS BASICAS DE HIERRO Y DE ACERO</option>
+                <option value="2721">2721 INDUSTRIAS BASICAS DE METALES PRECIOSOS</option>
+                <option value="2729">2729 INDUSTRIAS BASICAS DE OTROS METALES NO FERROSOS</option>
+                <option value="2731">2731 FUNDICION DE HIERRO Y DE ACERO</option>
+                <option value="2732">2732 FUNDICION DE METALES NO FERROSOS</option>
+                <option value="2811">2811 FABRICACION DE PRODUCTOS METALICOS PARA USO ESTRUCTURAL</option>
+                <option value="2812">2812 FABRICACION DE TANQUES, DEPOSITOS Y RECIPIENTES DE METAL</option>
+                <option value="2813">2813 FABRICACION DE GENERADORES DE VAPOR, EXCEPTO CALDERAS DE AGUA CALIENTE PARA
+                    CALEFACCION CENTRAL</option>
+                <option value="2891">2891 FORJA, PRENSADO, ESTAMPADO Y LAMINADO DE METAL; PULVIMETALURGIA</option>
+                <option value="2892">2892 TRATAMIENTO Y REVESTIMIENTO DE METALES; TRABAJOS DE INGENIERIA MECANICA EN GENERAL
+                    REALIZADOS A CAMBIO DE UNA RETRIBUCION O POR CONTRATA</option>
+                <option value="2893">2893 FABRICACION DE ARTICULOS DE CUCHILLERIA, HERRAMIENTAS DE MANO Y ARTICULOS DE
+                    FERRETERIA</option>
+                <option value="2899">2899 FABRICACION DE OTROS PRODUCTOS ELABORADOS DE METAL NCP</option>
+                <option value="2911">2911 FABR. DE MOTORES Y TURBINAS, EXCEPTO MOTORES PARA AERONAVES, VEHICULOS AUTOMOTORES
+                    Y MOTOCICLETAS</option>
+                <option value="2912">2912 FABRICACION DE BOMBAS, COMPRESORES, GRIFOS Y VALVULAS</option>
+                <option value="2913">2913 FABRICACION DE COJINETES, ENGRANAJES, TRENES DE ENGRANAJES Y PIEZAS DE TRANSMISION
+                </option>
+                <option value="2914">2914 FABRICACION DE HORNOS, HOGARES Y QUEMADORES INDUSTRIALES</option>
+                <option value="2915">2915 FABRICACION DE EQUIPO DE ELEVACION Y MANIPULACION</option>
+                <option value="2919">2919 FABRICACION DE OTROS TIPOS DE MAQUINARIA DE USO GENERAL NCP</option>
+                <option value="2921">2921 FABRICACION DE MAQUINARIA AGROPECUARIA Y FORESTAL</option>
+                <option value="2922">2922 FABRICACION DE MAQUINAS HERRAMIENTA</option>
+                <option value="2923">2923 FABRICACION DE MAQUINARIA PARA LA METALURGIA</option>
+                <option value="2924">2924 FABRICACION DE MAQUINARIA PARA LA EXPLOTACION DE MINAS Y CANTERAS Y PARA LA
+                    CONSTRUCCION</option>
+                <option value="2925">2925 FABRICACION DE MAQUINARIA PARA LA ELABORACION DE ALIMENTOS, BEBIDAS Y TABACO
+                </option>
+                <option value="2926">2926 FABRICACION DE MAQUINARIA PARA LA ELABORACION DE PRODUCTOS TEXTILES, PRENDAS DE
+                    VESTIR Y CUEROS</option>
+                <option value="2927">2927 FABRICACION DE ARMAS Y MUNICIONES</option>
+                <option value="2929">2929 FABRICACION DE OTROS TIPOS DE MAQUINARIA DE USO ESPECIAL NCP</option>
+                <option value="2930">2930 FABRICACION DE APARATOS DE USO DOMESTICO NCP</option>
+                <option value="3000">3000 FABRICACION DE MAQUINARIA DE OFICINA, CONTABILIDAD E INFORMATICA</option>
+                <option value="3110">3110 FABRICACION DE MOTORES, GENERADORES Y TRANSFORMADORES ELECTRICOS</option>
+                <option value="3120">3120 FABRICACION DE APARATOS DE DISTRIBUCION Y CONTROL DE LA ENERGIA ELECTRICA</option>
+                <option value="3130">3130 FABRICACION DE HILOS Y CABLES AISLADOS</option>
+                <option value="3140">3140 FABRICACION DE ACUMULADORES Y DE PILAS ELECTRICAS</option>
+                <option value="3150">3150 FABRICACION DE LAMPARAS ELECTRICAS Y EQUIPO DE ILUMINACION</option>
+                <option value="3190">3190 FABRICACION DE OTROS TIPOS DE EQUIPO ELECTRICO NCP</option>
+                <option value="3210">3210 FABRICACION DE TUBOS Y VALVULAS ELECTRONICAS Y DE OTROS COMPONENTES ELECTRONICOS
+                </option>
+                <option value="3220">3220 FABRICACION DE TRANSMISORES DE RADIO Y TELEVISION Y DE APARATOS PARA TELEFONIA Y
+                    TELEGRAFIA O DE LA IMAGEN, Y DE PRODUCTOS CONEXOS </option>
+                <option value="3230">3230 FABRICACION DE RECEPTORES DE RADIO Y TELEVISION, DE APARATOS DE GRABACION Y DE
+                    REPRODUCCION DEL SONIDO O DE LA IMAGEN, Y DE PRODUCTOS CONEXOS A OTROS FINES, EXCEPTO INSTRUMENTOS DE OPTICAS </option>
+                <option value="3311">3311 FABRICACION DE EQUIPO MEDICO Y QUIRURGICO Y DE APARATOS ORTESICOS Y PROTESICOS
+                </option>
+                <option value="3312">3312 FABRICACION DE INSTRUMENTOS Y APARATOS PARA MEDIR, VERIFICAR, ENSAYAR, NAVEGAR Y
+                    OTROS FINES, EXCEPTO EQUIPO DE CONTROL DE PROCESOS INDUSTRIALES</option>
+                <option value="3313">3313 FABRICACION DE EQUIPO DE CONTROL DE PROCESOS INDUSTRIALES</option>
+                <option value="3320">3320 FABRICACION DE INSTRUMENTOS OPTICOS Y DE EQUIPO FOTOGRAFICO</option>
+                <option value="3330">3330 FABRICACION DE RELOJES</option>
+                <option value="3410">3410 FABRICACION DE VEHICULOS AUTOMOTORES Y SUS MOTORES</option>
+                <option value="3420">3420 FABRICACION DE CARROCERIAS PARA VEHICULOS AUTOMOTORES; FABRICACION DE REMOLQUES Y
+                    SEMIRREMOLQUES</option>
+                <option value="3430">3430 FABR. DE PARTES, PIEZAS Y ACCESORIOS (AUTOPARTES) PARA VEHICULOS AUTOMOTORES Y
+                    PARA SUS MOTORES</option>
+                <option value="3511">3511 CONSTRUCCION Y REPARACION DE BUQUES</option>
+                <option value="3512">3512 CONSTRUCCION Y REPARACION DE EMBARCACIONES DE RECREO Y DE DEPORTE</option>
+                <option value="3520">3520 FABRICACION DE LOCOMOTORAS Y DE MATERIAL RODANTE PARA FERROCARRILES Y TRANVIAS
+                </option>
+                <option value="3530">3530 FABRICACION DE AERONAVES Y DE NAVES ESPACIALES</option>
+                <option value="3591">3591 FABRICACION DE MOTOCICLETAS</option>
+                <option value="3592">3592 FABRICACION DE BICICLETAS Y DE SILLONES DE RUEDAS PARA DISCAPACITADOS</option>
+                <option value="3599">3599 FABRICACION DE OTROS TIPOS DE EQUIPO DE TRANSPORTE NCP</option>
+                <option value="3611">3611 FABRICACION DE MUEBLES PARA EL HOGAR</option>
+                <option value="3612">3612 FABRICACION DE MUEBLES PARA OFICINA</option>
+                <option value="3613">3613 FABRICACION DE MUEBLES PARA COMERCIO Y SERVICIOS</option>
+                <option value="3614">3614 FABRICACION DE COLCHONES Y SOMIERES</option>
+                <option value="3619">3619 FABRICACION DE OTROS MUEBLES NCP</option>
+                <option value="3691">3691 FABRICACION DE JOYAS Y DE ARTICULOS CONEXOS</option>
+                <option value="3692">3692 FABRICACION DE INSTRUMENTOS MUSICALES</option>
+                <option value="3693">3693 FABRICACION DE ARTICULOS DEPORTIVOS</option>
+                <option value="3694">3694 FABRICACION DE JUEGOS Y JUGUETES</option>
+                <option value="3699">3699 OTRAS INDUSTRIAS MANUFACTURERAS NCP</option>
+                <option value="3710">3710 RECICLAJE DE DESPERDICIOS Y DE DESECHOS METALICOS</option>
+                <option value="3720">3720 RECICLAJE DE DESPERDICIOS Y DESECHOS NO METALICOS</option>
+                <option value="4010">4010 GENERACION, CAPTACION Y DISTRIBUCION DE ENERGIA ELECTRICA</option>
+                <option value="4020">4020 FABRICACION DE GAS; DISTRIBUCION DE COMBUSTIBLES GASEOSOS POR TUBERIAS</option>
+                <option value="4030">4030 SUMINISTRO DE VAPOR Y AGUA CALIENTE</option>
+                <option value="4100">4100 CAPTACION, DEPURACION Y DISTRIBUCION DE AGUA</option>
+                <option value="4511">4511 TRABAJOS DE DEMOLICION Y PREPARACION DE TERRENOS PARA LA CONSTRUCCION DE
+                    EDIFICACIONES</option>
+                <option value="4512">4512 TRABAJOS DE PREPARACION DE TERRENOS PARA OBRAS CIVILES</option>
+                <option value="4511">4521 CONSTRUCCION DE EDIFICACIONES PARA USO RESIDENCIAL</option>
+                <option value="4522">4522 CONSTRUCCION DE EDIFICACIONES PARA USO NO RESIDENCIAL</option>
+                <option value="4530">4530 CONSTRUCCION DE OBRAS DE INGENIERIA CIVIL</option>
+                <option value="4541">4541 INSTALACIONES HIDRAULICAS Y TRABAJOS CONEXOS</option>
+                <option value="4542">4542 TRABAJOS DE ELECTRICIDAD</option>
+                <option value="4543">4543 TRABAJOS DE INSTALACION DE EQUIPOS</option>
+                <option value="4549">4549 OTROS TRABAJOS DE ACONDICIONAMIENTO</option>
+                <option value="4551">4551 INSTALACION DE VIDRIOS Y VENTANAS</option>
+                <option value="4552">4552 TRABAJOS DE PINTURA Y TERMINACION DE MUROS Y PISOS</option>
+                <option value="4559">4559 OTROS TRABAJOS DE TERMINACION Y ACABADO</option>
+                <option value="4560">4560 ALQUILER DE EQUIPO PARA CONSTRUCCION Y DEMOLICION DOTADO DE OPERARIOS</option>
+                <option value="5011">5011 COMERCIO DE VEHICULOS AUTOMOTORES NUEVOS</option>
+                <option value="5012">5012 COMERCIO DE VEHICULOS AUTOMOTORES USADOS</option>
+                <option value="5020">5020 MANTENIMIENTO Y REPARACION DE VEHICULOS AUTOMOTORES</option>
+                <option value="5030">5030 COMERCIO DE PARTES, PIEZAS (AUTOPARTES) Y ACCESORIOS (LUJOS) PARA VEHICULOS
+                    AUTOMOTORES</option>
+                <option value="5040">5040 COMERCIO, MANTENIMIENTO Y REPARACION DE MOTOCICLETAS Y DE SUS PARTES, PIEZAS Y
+                    ACCESORIOS</option>
+                <option value="5051">5051 COMERCIO AL POR MENOR DE COMBUSTIBLE PARA AUTOMOTORES</option>
+                <option value="5052">5052 COMERCIO AL POR MENOR DE LUBRICANTES (ACEITES, GRASAS), ADITIVOS Y PRODUCTOS DE
+                    LIMPIEZA PARA VEHICULOS AUTOMOTORES</option>
+                <option value="5111">5111 COMERCIO AL POR MAYOR A CAMBIO DE UNA RETRIBUCION O POR CONTRATA DE PRODUCTOS
+                    AGRICOLAS (EXCEPTO CAFE), SILVICOLAS Y DE ANIMALES VIVOS Y SUS PRODUCTOS</option>
+                <option value="5112">5112 COMERCIO AL POR MAYOR A CAMBIO DE UNA RETRIBUCION O POR CONTRATA DE CAFE PERGAMINO
+                </option>
+                <option value="5113">5113 COMERCIO AL POR MAYOR A CAMBIO DE UNA RETRIBUCION O POR CONTRATA DE PRODUCTOS
+                    MANUFACTURADOS</option>
+                <option value="5119">5119 COMERCIO AL POR MAYOR A CAMBIO DE UNA RETRIBUCION O POR CONTRATA DE PRODUCTOS NCP
+                </option>
+                <option value="5121">5121 COMERCIO AL POR MAYOR DE MATERIAS PRIMAS PRODUCTOS AGRICOLAS, EXCEPTO CAFE Y
+                    FLORES</option>
+                <option value="5122">5122 COMERCIO AL POR MAYOR DE CAFE PERGAMINO</option>
+                <option value="5123">5123 COMERCIO AL POR MAYOR DE FLORES Y PLANTAS ORNAMENTALES</option>
+                <option value="5124">5124 COMERCIO AL POR MAYOR DE MATERIAS PRIMAS PECUARIAS, ANIMALES VIVOS Y SUS PRODUCTOS
+                </option>
+                <option value="5125">5125 COMERCIO AL POR MAYOR DE PRODUCTOS ALIMENTICIOS PROCESADOS, EXCEPTO CAFE TRILLADO
+                </option>
+                <option value="5126">5126 COMERCIO AL POR MAYOR DE CAFE TRILLADO</option>
+                <option value="5127">5127 COMERCIO AL POR MAYOR DE BEBIDAS Y PRODUCTOS DEL TABACO</option>
+                <option value="5131">5131 COMERCIO AL POR MAYOR DE PRODUCTOS TEXTILES Y PRODUCTOS CONFECCIONADOS PARA USO
+                    DOMESTICO.</option>
+                <option value="5132">5132 COMERCIO AL POR MAYOR DE PRENDAS DE VESTIR, ACCESORIOS DE PRENDAS DE VESTIR Y ART.
+                    ELABORADOS EN PIEL</option>
+                <option value="5133">5133 COMERCIO AL POR MAYOR DE CALZADO</option>
+                <option value="5134">5134 COMERCIO AL POR MAYOR DE APARATOS, ARTICULOS Y EQUIPO DE USO DOMESTICO</option>
+                <option value="5135">5135 COMERCIO AL POR MAYOR DE PRODUCTOS FARMACEUTICOS, MEDICINALES, COSMETICOS Y DE
+                    TOCADOR</option>
+                <option value="5136">5136 COMERCIO AL POR MAYOR DE EQUIPOS MEDICOS Y QUIRURGICOS Y DE APARATOS ORTESICOS Y
+                    PROTESICOS</option>
+                <option value="5137">5137 COMERCIO AL POR MAYOR DE PAPEL Y CARTON; PRODUCTOS DE PAPEL Y CARTON</option>
+                <option value="5139">5139 COMERCIO AL POR MAYOR DE OTROS PRODUCTOS DE CONSUMO NCP</option>
+                <option value="5141">5141 COMERCIO AL POR MAYOR DE MATERIALES DE CONSTRUCCION, FERRETERIA Y VIDRIO</option>
+                <option value="5142">5142 COMERCIO AL POR MAYOR DE PINTURAS Y PRODUCTOS CONEXOS</option>
+                <option value="5151">5151 COMERCIO AL POR MAYOR DE COMBUSTIBLES SOLIDOS, LIQUIDOS, GASEOSOS Y PRODUCTOS
+                    CONEXOS</option>
+                <option value="5152">5152 COMERCIO AL POR MAYOR DE METALES Y MINERALES METALIFEROS EN FORMAS PRIMARIAS
+                </option>
+                <option value="5153">5153 COMERCIO AL POR MAYOR DE PRODUCTOS QUIMICOS BASICOS, PLASTICOS Y CAUCHO EN FORMAS
+                    PRIMARIAS Y PRODUCTOS QUIMICOS DE USO AGROPECUARIO</option>
+                <option value="5154">5154 COMERCIO AL POR MAYOR DE FIBRAS TEXTILES</option>
+                <option value="5155">5155 COMERCIO AL POR MAYOR DE DESPERDICIOS O DESECHOS INDUSTRIALES Y MATERIAL PARA
+                    RECICLAJE</option>
+                <option value="5159">5159 COMERCIO AL POR MAYOR DE OTROS PRODUCTOS INTERMEDIOS NCP</option>
+                <option value="5161">5161 COMERCIO AL POR MAYOR DE MAQUINARIA Y EQUIPO PARA LA AGRICULTURA, MINERIA,
+                    CONSTRUCCION Y LA INDUSTRIA</option>
+                <option value="5162">5162 COMERCIO AL POR MAYOR DE EQUIPO DE TRANSPORTE, EXCEPTO VEHICULOS AUTOMOTORES Y
+                    MOTOCICLETAS</option>
+                <option value="5163">5163 COMERCIO AL POR MAYOR DE MAQUINARIA PARA OFICINA, CONTABILIDAD E INFORMATICA
+                </option>
+                <option value="5169">5169 COMERCIO AL POR MAYOR DE MAQUINARIA Y EQUIPO NCP</option>
+                <option value="5170">5170 MANTENIMIENTO Y REPARACION DE MAQUINARIA Y EQUIPO.</option>
+                <option value="5190">5190 COMERCIO AL POR MAYOR DE PRODUCTOS DIVERSOS NCP</option>
+                <option value="5211">5211 COMERCIO AL POR MENOR, EN ESTABLECIMIENTOS NO ESPECIALIZADOS, CON SURTIDO
+                    COMPUESTO PRINCIPALMENTE DE ALIMENTOS (VIVERES EN GENERAL), BEBIDAS Y TABACO</option>
+                <option value="5219">5219 COMERCIO AL POR MENOR EN ESTABLECIMIENTOS NO ESPECIALIZADOS CON SURTIDO COMPUESTO
+                    PRINCIPALMENTE POR PRODUCTOS DIFERENTES DE ALIMENTOS (VIVERES EN GENERAL), BEBIDAS Y TABACOS</option>
+                <option value="5221">5221 COMERCIO AL POR MENOR DE FRUTAS Y VERDURAS, EN ESTABLECIMIENTOS ESPECIALIZADOS
+                </option>
+                <option value="5222">5222 COMERCIO AL POR MENOR DE LECHE, PRODUCTOS LACTEOS Y HUEVOS EN ESTABLECIMIENTOS
+                    ESPECIALIZADOS</option>
+                <option value="5223">5223 COMERCIO AL POR MENOR DE CARNES (INCLUYE AVES DE CORRAL), PRODUCTOS CARNICOS,
+                    PESCADOS Y PRODUCTOS DE MAR, EN ESTABLECIMIENTOS ESPECIALIZADOS</option>
+                <option value="5224">5224 COMERCIO AL POR MENOR DE PRODUCTOS DE CONFITERIA EN ESTABLECIMIENTOS
+                    ESPECIALIZADOS</option>
+                <option value="5225">5225 COMERCIO AL POR MENOR DE BEBIDAS Y PRODUCTOS DEL TABACO EN ESTABLECIMIENTOS
+                    ESPECIALIZADOS</option>
+                <option value="5229">5229 COMERCIO AL POR MENOR DE OTROS PRODUCTOS ALIMENTICIOS NCP, EN ESTABLECIMIENTOS
+                    ESPECIALIZADOS</option>
+                <option value="5231">5231 COMERCIO AL POR MENOR DE PRODUCTOS FARMACEUTICOS, MEDICINALES, Y ODONTOLOGICOS;
+                    ARTICULOS DE PERFUMERIA, COSMETICOS Y DE TOCADOR EN ESTABLECIMIENTOS ESPECIALIZADOS</option>
+                <option value="5232">5232 COMERCIO AL POR MENOR DE PRODUCTOS TEXTILES EN ESTABLECIMIENTOS ESPECIALIZADOS
+                </option>
+                <option value="5233">5233 COMERCIO AL POR MENOR DE PRENDAS DE VESTIR Y SUS ACCESORIOS (INCLUYE ARTICULOS DE
+                    PIEL)</option>
+                <option value="5234">5234 COMERCIO AL POR MENOR DE TODO TIPO DE CALZADO, ARTICULOS DE CUERO Y SUCEDANEOS DEL
+                    CUERO, EN ESTABLECIMIENTOS ESPECIALIZADOS</option>
+                <option value="5235">5235 COMERCIO AL POR MENOR DE ELECTRODOMESTICOS EN ESTABLECIMIENTOS ESPECIALIZADOS
+                </option>
+                <option value="5236">5236 COMERCIO AL POR MENOR DE MUEBLES PARA EL HOGAR EN ESTABLECIMIENTOS ESPECIALIZADOS
+                </option>
+                <option value="5237">5237 COMERCIO AL POR MENOR DE EQUIPO Y ARTICULOS DE USO DOMESTICO DIFERENTES DE
+                    ELECTRODOMESTICOS Y MUEBLES PARA EL HOGAR</option>
+                <option value="5239">5239 COMERCIO AL POR MENOR DE PRODUCTOS DIVERSOS NCP, EN ESTABLECIMIENTOS
+                    ESPECIALIZADOS</option>
+                <option value="5241">5241 COMERCIO AL POR MENOR DE ARTICULOS DE FERRETERIA, CERRAJERIA Y PRODUCTOS DE
+                    VIDRIO, EXCEPTO PINTURAS EN ESTABLECIMIENTOS ESPECIALIZADOS</option>
+                <option value="5242">5242 COMERCIO AL POR MENOR DE PINTURAS EN ESTABLECIMIENTOS ESPECIALIZADOS</option>
+                <option value="5243">5243 COMERCIO AL POR MENOR DE MUEBLES PARA OFICINA, MAQUINARIA Y EQUIPO DE OFICINA,
+                    COMPUTADORES Y PROGRAMAS DE COMPUTADOR, EN ESTABLECIMIENTOS ESPECIALIZADOS</option>
+                <option value="5244">5244 COMERCIO AL POR MENOR DE LIBROS, PERIODICOS, MATERIALES Y ARTICULOS DE PAPELERIA Y
+                    ESCRITORIO, EN ESTABLECIMIENTOS ESPECIALIZADOS</option>
+                <option value="5245">5245 COMERCIO AL POR MENOR DE EQUIPO FOTOGRAFICO EN ESTABLECIMIENTOS ESPECIALIZADOS
+                </option>
+                <option value="5246">5246 COMERCIO AL POR MENOR DE EQUIPO OPTICO Y DE PRECISION EN ESTABLECIMIENTOS
+                    ESPECIALIZADOS</option>
+                <option value="5249">5249 COMERCIO AL POR MENOR DE OTROS NUEVOS PRODUCTOS DE CONSUMO NCP EN ESTABLECIMIENTOS
+                    ESPECIALIZADOS</option>
+                <option value="5251">5251 COMERCIO AL POR MENOR DE ARTICULOS USADOS EN ESTABLECIMIENTOS ESPECIALIZADOS
+                </option>
+                <option value="5252">5252 ACTIVIDADES COMERCIALES DE LAS CASAS DE EMPEÐO O COMPRAVENTAS</option>
+                <option value="5261">5261 COMERCIO AL POR MENOR A TRAVES DE CASAS DE VENTA POR CORREO</option>
+                <option value="5262">5262 COMERCIO AL POR MENOR EN PUESTOS MOVILES</option>
+                <option value="5269">5269 OTROS TIPOS DE COMERCIO AL POR MENOR NO REALIZADO EN ESTABLECIMIENTOS</option>
+                <option value="5271">5271 REPARACION DE EFECTOS PERSONALES</option>
+                <option value="5272">5272 REPARACION DE ENSERES DOMESTICOS</option>
+                <option value="5511">5511 ALOJAMIENTO EN "HOTELES", "HOSTALES" Y "APARTAHOTELES"</option>
+                <option value="5512">5512 ALOJAMIENTO EN "RESIDENCIAS", "MOTELES" Y " AMOBLADOS"</option>
+                <option value="5513">5513 ALOJAMIENTO EN "CENTROS VACACIONALES" Y "ZONAS DE CAMPING"</option>
+                <option value="5519">5519 OTROS TIPOS DE ALOJAMIENTO NCP</option>
+                <option value="5521">5521 EXPENDIO A LA MESA DE COMIDAS PREPARADAS, EN RESTAURANTES</option>
+                <option value="5522">5522 EXPENDIO, A LA MESA, DE COMIDAS PREPARADAS EN CAFETERIAS</option>
+                <option value="5523">5523 EXPENDIO, POR AUTOSERVICIO, DE COMIDAS PREPARADAS EN RESTAURANTES</option>
+                <option value="5524">5524 EXPENDIO, POR AUTOSERVICIO, DE COMIDAS PREPARADAS EN CAFETERIAS</option>
+                <option value="5529">5529 OTROS TIPOS DE EXPENDIO NCP DE ALIMENTOS PREPARADOS</option>
+                <option value="5530">5530 EXPENDIO DE BEBIDAS ALCOHOLICAS PARA EL CONSUMO DENTRO DEL ESTABLECIMIENTO
+                </option>
+                <option value="6010">6010 TRANSPORTE POR VIA FERREA</option>
+                <option value="6021">6021 TRANSPORTE URBANO COLECTIVO REGULAR DE PASAJEROS</option>
+                <option value="6022">6022 TRANSPORTE INTERMUNICIPAL COLECTIVO REGULAR DE PASAJEROS</option>
+                <option value="6023">6023 TRANSPORTE INTERNACIONAL COLECTIVO REGULAR DE PASAJEROS</option>
+                <option value="6031">6031 TRANSPORTE NO REGULAR INDIVIDUAL DE PASAJEROS</option>
+                <option value="6032">6032 TRANSPORTE COLECTIVO NO REGULAR DE PASAJEROS</option>
+                <option value="6039">6039 OTROS TIPOS DE TRANSPORTE NO REGULAR DE PASAJEROS NCP</option>
+                <option value="6041">6041 TRANSPORTE MUNICIPAL DE CARGA POR CARRETERA</option>
+                <option value="6042">6042 TRANSPORTE INTERMUNICIPAL DE CARGA POR CARRETERA</option>
+                <option value="6043">6043 TRANSPORTE INTERNACIONAL DE CARGA POR CARRETERA</option>
+                <option value="6044">6044 ALQUILER DE VEHICULOS DE CARGA CON CONDUCTOR</option>
+                <option value="6050">6050 TRANSPORTE POR TUBERIAS</option>
+                <option value="6111">6111 TRANSPORTE MARITIMO INTERNACIONAL</option>
+                <option value="6112">6112 TRANSPORTE MARITIMO DE CABOTAJE</option>
+                <option value="6120">6120 TRANSPORTE FLUVIAL</option>
+                <option value="6211">6211 TRANSPORTE REGULAR NACIONAL DE PASAJEROS, POR VIA AEREA</option>
+                <option value="6212">6212 TRANSPORTE REGULAR NACIONAL DE CARGA, POR VIA AEREA</option>
+                <option value="6213">6213 TRANSPORTE REGULAR INTERNACIONAL DE PASAJEROS, POR VIA AEREA</option>
+                <option value="6214">6214 TRANSPORTE REGULAR INTERNACIONAL DE CARGA, POR VIA AEREA</option>
+                <option value="6220">6220 TRANSPORTE NO REGULAR POR VIA AEREA</option>
+                <option value="6310">6310 MANIPULACION DE CARGA</option>
+                <option value="6320">6320 ALMACENAMIENTO Y DEPOSITO</option>
+                <option value="6331">6331 ACTIVIDADES DE ESTACIONES DE TRANSPORTE TERRESTRE</option>
+                <option value="6332">6332 ACTIVIDADES DE ESTACIONES DE TRANSPORTE ACUATICO</option>
+                <option value="6333">6333 ACTIVIDADES DE AEROPUERTOS</option>
+                <option value="6339">6339 OTRAS ACTIVIDADES COMPLEMENTARIAS DEL TRANSPORTE</option>
+                <option value="6340">6340 ACTIVIDADES DE AGENCIAS DE VIAJES Y ORGANIZADORES DE VIAJES;  ACTIVIDADES DE
+                    ASISTENCIA A TURISTAS NCP</option>
+                <option value="6390">6390 ACTIVIDADES DE OTRAS AGENCIAS DE TRANSPORTE</option>
+                <option value="6411">6411 ACTIVIDADES POSTALES NACIONALES</option>
+                <option value="6412">6412 ACTIVIDADES DE CORREO DISTINTAS DE LAS ACTIVIDADES POSTALES NACIONALES</option>
+                <option value="6421">6421 SERVICIOS TELEFONICOS</option>
+                <option value="6422">6422 SERVICIO DE TRANSMISION DE DATOS A TRAVES DE REDES</option>
+                <option value="6423">6423 SERVICIOS DE TRANSMISION DE PROGRAMAS DE RADIO Y TELEVISION</option>
+                <option value="6424">6424 SERVICIOS DE TRANSMISION POR CABLE</option>
+                <option value="6425">6425 OTROS SERVICIOS DE TELECOMUNICACIONES</option>
+                <option value="6426">6426 SERVICIOS RELACIONADOS CON LAS TELECOMUNICACIONES</option>
+                <option value="6511">6511 BANCA CENTRAL</option>
+                <option value="6512">6512 ACTIVIDADES DE LOS BANCOS DIFERENTES DEL BANCO CENTRAL</option>
+                <option value="6513">6513 ACTIVIDADES DE LAS CORPORACIONES DE AHORRO Y VIVIENDA</option>
+                <option value="6514">6514 ACTIVIDADES DE LAS CORPORACIONES FINANCIERAS</option>
+                <option value="6515">6515 ACTIVIDADES DE LAS COMPAÐIAS DE FINANCIAMIENTO COMERCIAL</option>
+                <option value="6516">6516 ACTIVIDADES DE LAS COOPERATIVAS DE GRADO SUPERIOR DE CARACTER FINANCIERO</option>
+                <option value="6519">6519 OTROS TIPOS DE INTERMEDIACION MONETARIA NCP</option>
+                <option value="6591">6591 ARRENDAMIENTO FINANCIERO (LEASING)</option>
+                <option value="6592">6592 ACTIVIDADES DE LAS SOCIEDADES DE FIDUCIA</option>
+                <option value="6593">6593 ACTIVIDADES DE LAS COOPERATIVAS FINANCIERAS Y FONDOS DE EMPLEADOS</option>
+                <option value="6594">6594 ACTIVIDADES DE LAS SOCIEDADES DE CAPITALIZACION</option>
+                <option value="6595">6595 ACTIVIDADES DE COMPRA DE CARTERA (FACTORING)</option>
+                <option value="6596">6596 OTROS TIPOS DE CREDITO</option>
+                <option value="6599">6599 OTROS TIPOS DE INTERMEDIACION FINANCIERA NCP</option>
+                <option value="6601">6601 PLANES DE SEGUROS GENERALES</option>
+                <option value="6602">6602 PLANES DE SEGUROS DE VIDA</option>
+                <option value="6603">6603 PLANES DE REASEGUROS</option>
+                <option value="6604">6604 PLANES DE PENSIONES Y CESANTIAS</option>
+                <option value="6711">6711 ADMINISTRACION DE MERCADOS FINANCIEROS</option>
+                <option value="6712">6712 ACTIVIDADES DE LAS BOLSAS DE VALORES</option>
+                <option value="6713">6713 ACTVIDADES DE COMISIONISTAS Y CORREDORES DE VALORES</option>
+                <option value="6714">6714 OTRAS ACTIVIDADES RELACIONADAS CON EL MERCADO DE VALORES</option>
+                <option value="6715">6715 ACTIVIDADES DE LAS CASAS DE CAMBIO</option>
+                <option value="6719">6719 ACTIVIDADES AUXILIARES DE LA ADMINISTRACION FINANCIERA NCP</option>
+                <option value="6721">6721 ACTIVIDADES AUXILIARES DE LOS SEGUROS</option>
+                <option value="6722">6722 ACTIVIDADES AUXILIARES DE LOS FONDOS DE PENSIONES Y CESANTIAS</option>
+                <option value="7010">7010 ACTIVIDADES INMOBILIARIAS REALIZADAS CON BIENES PROPIOS O ARRENDADOS</option>
+                <option value="7020">7020 ACTIVIDADES INMOBILIARIAS REALIZADAS A CAMBIO DE UNA RETRIBUCION O POR CONTRATA
+                </option>
+                <option value="7111">7111 ALQUILER DE EQUIPO DE TRANSPORTE TERRESTRE</option>
+                <option value="7112">7112 ALQUILER DE EQUIPO DE TRANSPORTE ACUATICO</option>
+                <option value="7113">7113 ALQUILER DE EQUIPO DE TRANSPORTE AEREO</option>
+                <option value="7121">7121 ALQUILER DE MAQUINARIA Y EQUIPO AGROPECUARIO</option>
+                <option value="7122">7122 ALQUILER DE MAQUINARIA Y EQUIPO DE CONSTRUCCION Y DE INGENIERIA CIVIL</option>
+                <option value="7123">7123 ALQUILER DE MAQUINARIA Y EQUIPO DE OFICINA (INCLUSO COMPUTADORAS)</option>
+                <option value="7129">7129 ALQUILER DE OTROS TIPOS DE MAQUINARIA Y EQUIPO NCP</option>
+                <option value="7130">7130 ALQUILER DE EFECTOS PERSONALES Y ENSERES DOMESTICOS  NCP</option>
+                <option value="7210">7210 CONSULTORES EN EQUIPO DE INFORMATICA</option>
+                <option value="7220">7220 CONSULTORES EN PROGRAMAS DE INFORMATICA Y SUMINISTRO DE PROGRAMAS DE INFORMATICA
+                </option>
+                <option value="7230">7230 PROCESAMIENTO DE DATOS</option>
+                <option value="7240">7240 ACTIVIDADES RELACIONADAS CON BASES DE DATOS</option>
+                <option value="7250">7250 MANTENIMIENTO Y REPARACION DE MAQUINARIA DE OFICINA, CONTABILIDAD E INFORMATICA
+                </option>
+                <option value="7290">7290 OTRAS ACTIVIDADES DE INFORMATICA</option>
+                <option value="7310">7310 INVESTIGACION Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS NATURALES Y LA
+                    INGENIERIA</option>
+                <option value="7320">7320 INVESTIGACION Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS SOCIALES Y LAS
+                    HUMANIDADES ESTUDIO DE MERCADOS Y REALIZACION ENCUESTAS DE OPINION PUBLICA; ASESORAMIENTO
+                    EMPRESARIAL Y EN MATERIA DE GESTION </option>
+                <option value="7411">7411 ACTIVIDADES  JURIDICAS</option>
+                <option value="7412">7412 ACTIVIDADES DE CONTABILIDAD, TENEDURIA DE LIBROS Y AUDITORIA; ASESORAMIENTO EN
+                    MATERIA DE IMPUESTOS</option>
+                <option value="7413">7413 INVESTIGACION DE MERCADOS Y REALIZACION DE ENCUESTAS DE OPINION PUBLICA</option>
+                <option value="7414">7414 ACTIVIDADES DE ASESORAMIENTO EMPRESARIAL Y  EN MATERIA DE GESTION</option>
+                <option value="7421">7421 ACTIVIDADES DE ARQUITECTURA E INGENIERIA Y ACTIVIDADES CONEXAS DE ASESORAMIENTO
+                    TECNICO</option>
+                <option value="7422">7422 ENSAYOS Y ANALISIS TECNICOS</option>
+                <option value="7430">7430 PUBLICIDAD</option>
+                <option value="7491">7491 OBTENCION Y SUMINISTRO DE PERSONAL</option>
+                <option value="7492">7492 ACTIVIDADES DE INVESTIGACION Y SEGURIDAD</option>
+                <option value="7493">7493 ACTIVIDADES DE LIMPIEZA DE EDIFICIOS</option>
+                <option value="7494">7494 ACTIVIDADES DE FOTOGRAFIA</option>
+                <option value="7495">7495 ACTIVIDADES DE ENVASE Y EMPAQUE</option>
+                <option value="7499">7499 OTRAS ACTIVIDADES EMPRESARIALES  NCP</option>
+                <option value="7511">7511 ACTIVIDADES LEGISLATIVAS DE LA ADMINISTRACION PUBLICA EN GENERAL</option>
+                <option value="7512">7512 ACTIVIDADES EJECUTIVAS DE LA ADMINISTRACION PUBLICA EN GENERAL</option>
+                <option value="7513">7513 REGULACION DE LAS ACTIVIDADES DE ORGANISMOS QUE PRESTAN SERVICIOS DE SALUD,
+                    EDUCATIVOS, CULTURALES Y OTROS SERVICIOS SOCIALES, EXCEPTO SERVICIOS DE SEGURIDAD SOCIAL</option>
+                <option value="7514">7514 ACTIVIDADES REGULADORAS Y FACILITADORAS DE LA ACTIVIDAD ECONOMICA</option>
+                <option value="7515">7515 ACTIVIDADES AUXILIARES DE SERVICIOS PARA LA ADMINISTRACION PUBLICA EN GENERAL
+                </option>
+                <option value="7521">7521 RELACIONES  EXTERIORES</option>
+                <option value="7522">7522 ACTIVIDADES DE DEFENSA</option>
+                <option value="7523">7523 ACTIVIDADES DE LA JUSTICIA</option>
+                <option value="7524">7524 ACTIVIDADES DE LA POLICIA Y PROTECCION CIVIL</option>
+                <option value="8011">8011 EDUCACION PREESCOLAR</option>
+                <option value="8012">8012 EDUCACION BASICA PRIMARIA</option>
+                <option value="8021">8021 EDUCACION BASICA SECUNDARIA</option>
+                <option value="8022">8022 EDUCACION MEDIA</option>
+                <option value="8030">8030 SERVICIO DE EDUCACION LABORAL ESPECIAL</option>
+                <option value="8041">8041 ESTABLECIMIENTOS QUE PRESTAN EL SERVICIO DE EDUCACION PREESCOLAR Y BASICA
+                    PRIMARIA.</option>
+                <option value="8042">8042 ESTABLECIMIENTOS QUE PRESTAN EL SERVICIO DE EDUC. PREESCOLAR Y BASICA (BASICA
+                    PRIMARIA Y BASICA SECUNDARIA</option>
+                <option value="8043">8043 ESTABLECIMIENTOS QUE PRESTAN EL SERVICIO DE EDUC. PREESCOLAR, BASICA (BASICA
+                    PRIMARIA Y SECUNDARIA) Y  MEDIA.</option>
+                <option value="8044">8044 ESTABLECIMIENTOS QUE PRESTAN EL SERVICIO DE EDUCACION BASICA (BASICA PRIMARIA Y
+                    BASICA SECUNDARIA).</option>
+                <option value="8045">8045 ESTABLECIMIENTOS QUE PRESTAN EL SERVICIO DE EDUCACION BASICA (BASICA PRIMARIA Y
+                    BASICA SECUNDARIA) Y MEDIA.</option>
+                <option value="8046">8046 ESTABLECIMIENTOS QUE PRESTAN EL SERVICIO DE EDUCACION BASICA SECUNDARIA Y MEDIA.
+                </option>
+                <option value="8050">8050 EDUCACION SUPERIOR</option>
+                <option value="8060">8060 EDUCACION NO FORMAL</option>
+                <option value="8511">8511 ACTIVIDADES DE LAS INSTITUCIONES PRESTADORAS DE SERVICIOS DE SALUD, CON
+                    INTERNACION</option>
+                <option value="8512">8512 ACTIVIDADES DE LA PRACTICA MEDICA</option>
+                <option value="8513">8513 ACTIVIDADES DE LA PRACTICA ODONTOLOGICA</option>
+                <option value="8514">8514 ACTIVIDADES DE APOYO DIAGNOSTICO</option>
+                <option value="8515">8515 ACTIVIDADES DE APOYO TERAPEUTICO</option>
+                <option value="8519">8519 OTRAS ACTIVIDADES RELACIONADAS CON LA SALUD HUMANA</option>
+                <option value="8520">8520 ACTIVIDADES VETERINARIAS</option>
+                <option value="8531">8531 SERVICIOS SOCIALES CON ALOJAMIENTO</option>
+                <option value="8532">8532 SERVICIOS SOCIALES SIN ALOJAMIENTO</option>
+                <option value="9000">9000 ELIMINACION DE DESPERDICIOS Y AGUAS RESIDUALES, SANEAMIENTO Y ACTIVIDADES
+                    SIMILARES.</option>
+                <option value="9111">9111 ACTIVIDADES DE ORGANIZACIONES EMPRESARIALES Y DE EMPLEADORES</option>
+                <option value="9112">9112 ACTIVIDADES DE ORGANIZACIONES PROFESIONALES</option>
+                <option value="9120">9120 ACTIVIDADES DE SINDICATOS</option>
+                <option value="9191">9191 ACTIVIDADES DE ORGANIZACIONES RELIGIOSAS</option>
+                <option value="9192">9192 ACTIVIDADES DE ORGANIZACIONES POLITICAS</option>
+                <option value="9199">9199 ACTIVIDADES DE OTRAS ORGANIZACIONES NCP</option>
+                <option value="9211">9211 PRODUCCION Y DISTRIBUCION DE FILMES Y VIDEOCINTAS</option>
+                <option value="9212">9212 EXHIBICION DE FILMES Y VIDEOCINTAS</option>
+                <option value="9213">9213 ACTIVIDADES DE RADIO Y TELEVISION</option>
+                <option value="9214">9214 ACTIVIDADES TEATRALES Y MUSICALES Y OTRAS ACTIVIDADES ARTISTICAS</option>
+                <option value="9219">9219 OTRAS ACTIVIDADES DE ENTRETENIMIENTO NCP</option>
+                <option value="9220">9220 ACTIVIDADES DE AGENCIAS DE NOTICIAS</option>
+                <option value="9231">9231 ACTIVIDADES DE BIBLIOTECAS Y ARCHIVOS</option>
+                <option value="9232">9232 ACTIVIDADES DE MUSEOS Y PRESERVACION DE LUGARES Y EDIFICIOS HISTORICOS</option>
+                <option value="9233">9233 ACTIVIDADES DE JARDINES BOTANICOS Y ZOOLOGICOS Y DE PARQUES NACIONALES</option>
+                <option value="9241">9241 ACTIVIDADES DEPORTIVAS</option>
+                <option value="9242">9242 ACTIVIDADES DE JUEGOS DE AZAR</option>
+                <option value="9249">9249 OTRAS ACTIVIDADES DE ESPARCIMIENTO</option>
+                <option value="9301">9301 LAVADO Y LIMPIEZA DE PRENDAS DE TELA Y DE PIEL, INCLUSO LA LIMPIEZA EN SECO
+                </option>
+                <option value="9302">9302 PELUQUERIA Y OTROS TRATAMIENTOS DE BELLEZA</option>
+                <option value="9303">9303 POMPAS FUNEBRES Y ACTIVIDADES CONEXAS</option>
+                <option value="9309">9309 OTRAS ACTIVIDADES DE SERVICIOS NCP</option>
+                <option value="9500">9500 HOGARES PRIVADOS CON SERVICIO DOMESTICO</option>
+                <option value="9900">9900 ORGANIZACIONES Y ORGANOS EXTRATERRITORIALES</option>
+            </select>
+        </p>
+    </div>
+    <div class="pg col-md-4 text-center">
+        <p>Actividad economica:</p><input type="text" name="ActividadEconomica" required>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Tipo de cuenta:</p>
+        <select name="TipoCuenta">
+            <option value="0">Seleccione</option>
+            <option value="Corriente">Corriente</option>
+            <option value="Ahorro">Ahorro</option>
+            <option value="Cuenta por cobrar">Cuenta por cobrar</option>
+        </select>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Numero:</p><input type="text" name="NumCuenta" required>
+    </div>
+    <div class="pg col-md-4 text-center">
+        <!-- Agregar java script que deshabilite este campo segun el select de "Exento" -->
+        <p>No.de Registro de Importación vigte:</p><input type="text" name="NRegImportaVig" id="rimp" disabled="false">
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Exento:</p>
+        <select name="Exento" onchange="dcampo(this)">
+            <option value="0">Seleccione</option>
+            <option value="Si">si</option>
+            <option value="No">no</option>
+        </select>
+    </div>
+    <div class="sub col-md-11 text-center">
+        <h3 class="display-4">FINANCIACION</h3>
+    </div>
+    <div class="pg col-md-4 text-center">
+        <p>En Dolares Americanos(USD):</p><input type="text" name="EnDolaresAme" required>
+    </div>
+    <div class="pg col-md-4 text-center">
+        <p>Plazo:</p>
+        <p><input type="text" name="Plazo"> Dias</p>
+    </div>
+    <div class="pg col-md-3 text-center"></div>
+    <div class="pg col-md-3 text-center">
+        <p>A partir de: Documento de transporte:</p><input type="text" name="ApartirDocTrans" required>
+    </div>
+    <div class="pg col-md-7 text-center">
+        <p>Otro:</p><input type="text" name="Otro">
+    </div>
+    <div class="sub col-md-11 text-center">
+        <h3 class="display-4">INFORMACION DEL BENEFICIARIO</h3>
+    </div>
+    <div class="pg col-md-10 text-center">
+        <p>Nombre:</p><input type="text" name="Nombre1" required>
+    </div>
+    <div class="pg col-md-10 text-center">
+        <p>Direccion:</p><input type="text" name="Direccion1" required>
+    </div>
+    <div class="pg col-md-7 text-center"></div>
+    <div class="pg col-md-3 text-center">
+        <p>Ciudad:</p><input type="text" name="Ciudad1" required>
+    </div>
+    <div class="pg col-md-4 text-center">
+        <p>Telefono:</p><input type="text" name="Telefono1" required>
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Fax:</p><input type="text" name="Fax1">
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Pais:</p><input type="text" name="pais" required>
+    </div>
+    <div class="sub col-md-11 text-center">
+        <h3 class="display-4"><b>CONDICIONES PACTADAS CON EL BENEFICIARIO</b></h3>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>vigencia: <input type="text" name="Vigencia"> dias</p>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Codigo moneda:</p><input type="text" name="CodMoneda" required>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Monto:</p><input type="text" name="Monto" required>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Tolerancia: <input type="text" name="Tolerancia"> % para mas o para menos</p>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>Otro:</p><input type="text" name="Otro1">
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Utilizables con Pagos a:</p>
+        <!-- Según este select se habilita el campo ECDSUPPDOMDLC -->
+        <select name="UtilPago" onchange="hcampo(this)">
+            <option value="0">Seleccione</option>
+            <option value="A la vista">A la vista</option>
+            <option value="Por Aceptacion">Por Aceptacion</option>
+            <option value="Mixto">Mixto</option>
+        </select>
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>A partir del Documento de Transporte:</p><input type="text" name="ApartirDocTrans1" required>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>OTRO DOCUMENTO:</p><input type="text" name="OtroDoc" required>
+    </div>
+    <div class="pg col-md-2 text-center">
+        <p>DIAS:</p><input type="text" name="Dias">
+    </div>
+    <div class="pg col-md-11 text-center">
+        <!--Este campo se habilita si utilizables con pago es "mixto"-->
+        <p>En caso de ser utilizable por Pago Diferido o Mixto detalle las condiciones:</p><input type="text" id="upago"
+            name="ECDSUPPDOMDLC" disabled="true">
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Embarques parciales:</p>
+        <select name="EmbarqueParciales">
+            <option value="0">Seleccione</option>
+            <option value="Permitido">Permitido</option>
+            <option value="no Permitido">no Permitido</option>
+        </select>
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Transbordos:</p>
+        <select name="Transbordos">
+            <option value="0">Seleccione</option>
+            <option value="Permitido">Permitido</option>
+            <option value="no Permitido">no Permitido</option>
+        </select>
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Lugar de embarque (ciudad-pais):</p><input type="text" name="LugarEmbarque" required>
+    </div>
+    <div class="pg col-md-4 text-center">
+        <p>Ultima fecha de embarque:</p><input type="date" onchange="cfecha(this)" name="Fecha1" required>
+    </div>
+    <div class="pg col-md-1 text-center"></div>
+    <div class="pg col-md-5 text-center">
+        <p>Lugar de destino (ciudad-pais):</p><input type="text" name="LugarDestino" required>
+    </div>
+    <div class="sub col-md-11 text-center">
+        <h3 class="display-4">DESCRIPCION BREVE DE LA MERCANCIA</h3>
+    </div>
+    <div class="pg col-md-10 text-center">
+        <textarea name="DescrBrebeMerca" rows="7" required></textarea>
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Precio de la mercancia Incoterms 2000:</p>
+        <select name="PrescioMercaInco2000">
+            <option value="no selecciono"></option>
+            <option value="FOB">FOB</option>
+            <option value="CFR">CFR</option>
+            <option value="EXW">EXW</option>
+            <option value="FCA">FCA</option>
+            <option value="FAS">FAS</option>
+            <option value="CPT">CPT</option>
+            <option value="CIP">CIP</option>
+            <option value="CIF">CIF</option>
+            <option value="DPU">DPU</option>
+            <option value="DAP">DAP</option>
+            <option value="DDP">DDP</option>
+            <option value="otro">Otro</option>
+        </select>
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Tolerancia:</p>
+        <p><input type="text" name="Tolerancia1">% para mas o para menos</p>
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Otro:</p><input type="text" name="Otro3">
+    </div>
+    <div class="pg col-md-7 text-center">
+        <p>Banco notificador:</p><input type="text" name="BancoNotifica">
+    </div>
+    <div class="pg col-md-3 text-center">
+        <p>Codigo SWIFT:</p><!--<input type="text" name="CodSwift">-->
+        <select name="CodSwift">
+            <option value="700"> 700 </option>
+            <option value="701"> 701 </option>
+        </select>
+    </div>
+    <div class="pg col-md-8 text-center">
+        Autorizo al Banco que en el evento de no poder utilizar este banco directamente, se incluya como banco avisador.
+    </div>
+    <div class="pg col-md-2 text-center"></div>
+    <div class="pg col-md-4 text-center">
+        <p>Gastos fuera de Colombia por cuenta de:</p>
+        <select name="GasFueraColoCuenta">
+            <option value="no selecciono"></option>
+            <option value="beneficiario">beneficiario</option>
+            <option value="ordenante">ordenante</option>
+        </select>
+    </div>
+    <div class="pg col-md-4 text-center">
+        <p>Instrucciones de Notificacion:</p>
+        <select name="InstiNotifica">
+            <option value="no seleccioo"></option>
+            <option value="Confirmado">Confirmado</option>
+            <option value="avisado">avisado</option>
+        </select>
+    </div>
+    <div class="pg col-md-2 text-center"></div>
+    <div class="pg col-md-11 text-center">
+        <h3 class="display-4">DOCUMENTOS REQUERIDOS PARA EL PAGO</h3>
+    </div>
+    <div class="pg col-md-10 text-center">
+        <table>
+            <tr>
+                <th>Cantidad</th>
+                <th>Documento requerimientos</th>
+            </tr>
+            <tr>
+                <td>                    
+                    <input type="radio" name="OriginalCopia" id="OriginalCopiaC" value="copia">
+                    <label for="OriginalCopiaC">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia" id="OriginalCopiaO" value="original">
+                    <label for="OriginalCopiaO">Original</label>
+                </td>
+                <td>Factura comercial</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="OriginalCopia1" id="OriginalCopiaC1" value="copia">
+                    <label for="OriginalCopiaC1">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia1" id="OriginalCopiaO1" value="original">
+                    <label for="OriginalCopiaO1">Original</label>
+                </td>
+                <td>
+                    <div>
+                        <p>Conocimiento de Embarque limpio abordo de 
+                        <select name="ConociEmbarqueLimpio">
+                            <option value="no selecciono"></option>
+                            <option value="Guia Aerea">Guia Aerea</option>
+                            <option value="Guia Terrestre">Guia Terrestre</option>
+                            <option value="Transporte multimodal">Transporte multimodal</option>
+                            <option value="Conocimiento de embarque">Conocimiento de embarque</option>
+                        </select></p>
+                        <p>consignado a la orden de: 
+                        <input type="text" name="ConsignadoOrdende" required></p>
+                        <p>notificado a:
+                        <input type="text" name="Notificadoa" required></p>
+                        <p>señalando Fletes:
+                        <select name="SeñalandoFletes">
+                            <option value="no selecciono"></option>
+                            <option value="Al Cobro">Al Cobro</option>
+                            <option value="Prepagado">Prepagado</option>
+                        </select> </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="OriginalCopia2" id="OriginalCopiaC2" value="copia">
+                    <label for="OriginalCopiaC2">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia2" id="OriginalCopiaO2" value="original">
+                    <label for="OriginalCopiaO2">Original</label>
+                </td>
+                <td>lista de empaque</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="OriginalCopia3" id="OriginalCopiaC3" value="copia">
+                    <label for="OriginalCopiaC3">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia3" id="OriginalCopiaO3" value="original">
+                    <label for="OriginalCopiaO3">Original</label>
+                </td>
+                <td>Certificacion de origen</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="OriginalCopia4" id="OriginalCopiaC4" value="copia">
+                    <label for="OriginalCopiaC4">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia4" id="OriginalCopiaO4" value="original">
+                    <label for="OriginalCopiaO4">Original</label>
+                </td>
+                <td>
+                    <div>
+                        <p>Carta Aerea Remisoria de los Documentos
+                        <input type="text" name="caratAreaRemiDoc" required>
+                        <br>
+                        dirigido a:<br>
+                        <input type="text" name="Dirigidoa" required></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="OriginalCopia5" id="OriginalCopiaC5" value="copia">
+                    <label for="OriginalCopiaC5">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia5" id="OriginalCopiaO5" value="original">
+                    <label for="OriginalCopiaO5">Original</label>
+                </td>
+                <td>
+                    <p>Detallle del Embarque para efectos del Seguro, dirigido a:
+                        (Nombre y Dirección de la Aseguradora)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="OriginalCopia6" id="OriginalCopiaC6" value="copia">
+                    <label for="OriginalCopiaC6">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia6" id="OriginalCopiaO6" value="original">
+                    <label for="OriginalCopiaO6">Original</label>
+                </td>
+                <td>
+                    <p>otro
+                    <input type="text" name="otro4"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="OriginalCopia7" id="OriginalCopiaC7" value="copia">
+                    <label for="OriginalCopiaC7">Copia</label>
+                    <br>
+                    <input type="radio" name="OriginalCopia7" id="OriginalCopiaO7" value="original">
+                    <label for="OriginalCopiaO7">Original</label>
+                </td>
+                <td>
+                    <p>otro
+                    <input type="text" name="otro5"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="sub col-md-11 text-center">
+        <h3 class="display-4">CONDICIONES ADICIONALES</h3>
+    </div>
+    <div class="pg col-md-11 text-center">
+        <textarea name="CondAdicionales" rows="7" required></textarea>
+    </div>
+    <div class="pg col-md-8 text-center">
+        <P>Los documentos de embarque deben indicar que la mercancia viaja con retencion a favor del Banco</P>
+    </div>
+    <div class="pg col-md-2 text-center"></div>
+    <div>
+        <input type="submit" class="btn-primary" value="enviar" />
+    </div>
+   
+</div>
+    </form>
+</div>
+{% endblock %}

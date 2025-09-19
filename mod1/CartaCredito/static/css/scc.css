@@ -1,0 +1,82 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.sub{
+    display:inline-block;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0;
+	text-align: center;
+    background-color:  lightgray;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.pg{
+    display:inline-block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+input{
+    display:inline-block;
+    margin: 2px;
+}
+input:focus{
+    outline: 0;
+}
+
+input{
+    border-radius: 15px;
+    border: 1px;
+    width: 70%;
+    transition: padding-top 0.2s ease, margin-top 0.2 ease;
+    overflow: hidden;
+    display: inline-block;
+}
+select{
+    border-radius: 15px;
+    margin: 2px;
+    border: 1px;
+    width: 70%;
+    transition: padding-top 0.2s ease, margin-top 0.2 ease;
+    overflow: hidden;
+    display: inline-block;
+}
+.card-body{
+    background-color: rgb(139, 176, 245);
+    border-radius: 10px;
+    margin: 0;
+}
+
+.card{
+    background-color:  lightblue;
+    border:solid;
+    border-color: lightblue;
+    border-width: 10px;
+    border-radius: 15px;
+
+    
+}
+
+body{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn-primary{
+    width: 70%;
+}
+textarea{
+    border-radius: 15px;
+    width: 80%;
+}
+table,td{
+    border: solid;
+    border-width: 1px;
+    margin: auto;
+    background-color: lightgray;
+}
